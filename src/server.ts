@@ -160,9 +160,10 @@ export function createPdfMcpServer(): Server {
                 description: "Source PDF file path.",
               },
               angle: {
-                type: "number",
-                enum: [90, 180, 270],
-                description: "Clockwise rotation angle in degrees (90, 180, or 270).",
+                type: "string",
+                enum: ["90", "180", "270"],
+                description:
+                  "Clockwise rotation angle in degrees as a string (90, 180, or 270).",
               },
               outputPath: {
                 type: "string",
