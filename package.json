@@ -1,0 +1,59 @@
+{
+  "name": "@99apps/pdf-tool-mcp",
+  "version": "1.0.0",
+  "description": "Comprehensive Model Context Protocol (MCP) server for PDF manipulation, bank statement parsing, document conversion, and security. Works seamlessly with Claude Desktop, Cursor, Termigo, and AI agents.",
+  "main": "dist/index.js",
+  "bin": {
+    "pdf-tool-mcp": "dist/index.js"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsx src/index.ts",
+    "start": "node dist/index.js",
+    "lint": "tsc --noEmit",
+    "test": "tsx src/test-cli.ts"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "pdf",
+    "bank-statement",
+    "claude",
+    "cursor",
+    "pdf-parser",
+    "pdf-merge",
+    "pdf-protect",
+    "kliimora",
+    "ai-agent"
+  ],
+  "author": "99apps-id <naracitra.solusindo@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/99apps-id/pdf-tool-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/99apps-id/pdf-tool-mcp/issues"
+  },
+  "homepage": "https://github.com/99apps-id/pdf-tool-mcp#readme",
+  "dependencies": {
+    "@cantoo/pdf-lib": "^2.6.5",
+    "@modelcontextprotocol/sdk": "^1.6.0",
+    "commander": "^13.1.0",
+    "docx": "^9.6.1",
+    "dommatrix": "^1.0.3",
+    "exceljs": "^4.4.0",
+    "pdfjs-dist": "4.10.38",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.9",
+    "tsup": "^8.4.0",
+    "tsx": "^4.19.3",
+    "typescript": "^5.7.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
