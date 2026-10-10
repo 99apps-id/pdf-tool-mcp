@@ -3,18 +3,18 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![MCP Version](https://img.shields.io/badge/MCP-1.6.0-green.svg)](https://modelcontextprotocol.io)
 [![Node.js](https://img.shields.io/badge/Node.js-%3E%3D18.0.0-brightgreen.svg)](https://nodejs.org/)
-[![Powered by Kliimora](https://img.shields.io/badge/Engine-Kliimora%20PDF-purple.svg)](https://kliimorapdf.com)
+[![Powered by Kliimora](https://img.shields.io/badge/Engine-Kliimora%20PDF-purple.svg)](https://kliimorapdf.com/mcp-tool)
 
-A high-performance, comprehensive [Model Context Protocol (MCP)](https://modelcontextprotocol.io) server that empowers AI assistants (**Claude Desktop, Cursor, Windsurf, Termigo, VS Code, and custom AI agents**) with native PDF manipulation, banking statement extraction, document conversion, and security tools.
+A high-performance, developer-grade [Model Context Protocol (MCP)](https://modelcontextprotocol.io) server that empowers AI assistants (**Claude Desktop, Cursor, Termigo, Windsurf, Zed, and custom AI agents**) with native PDF manipulation, banking statement extraction, document conversion, and security tools.
 
 ---
 
 ## 🚀 Key Features
 
 * **🏦 Indonesian & International Bank Statement Parser**:
-  * Parse complex e-statements / rekening koran from **BCA, Mandiri (Livin/Kopra/CMS), BNI, BRI, Bank Jatim, Bank Mega, Bank Jago, SeaBank, DBS**, and international banks.
+  * Parse complex e-statements / rekening koran from **BCA, Mandiri (Livin/Kopra/CMS), BNI, BRI, Bank Jatim, Bank Mega, Bank Jago, SeaBank, DBS**, and international statements.
   * Extracts structured JSON arrays: `date`, `description`, `type (DB/CR)`, `amount`, and `running balance`.
-* **📊 Office Conversion**:
+* **📊 Office Document Generators**:
   * **Export to Excel (`.xlsx`)**: Auto-formatted transaction tables with color-coded Debits/Credits, numerical formats, and headers.
   * **Export to Word (`.docx`)**: Extract text flow and generate native Word documents.
 * **🔒 Enterprise PDF Security**:
@@ -38,8 +38,8 @@ You can run this MCP server directly via `npx` without manual installation, or c
 
 Add the following to your `claude_desktop_config.json`:
 
-* **MacOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
 * **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+* **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
 * **Linux**: `~/.config/Claude/claude_desktop_config.json`
 
 ```json
@@ -49,7 +49,7 @@ Add the following to your `claude_desktop_config.json`:
       "command": "npx",
       "args": ["-y", "@99apps/pdf-tool-mcp"],
       "env": {
-        "KLIIMORA_API_KEY": "your_api_key_here"
+        "KLIIMORA_API_KEY": "klm_live_optional_pro_max_key"
       }
     }
   }
@@ -60,7 +60,7 @@ Add the following to your `claude_desktop_config.json`:
 
 ### 2. Cursor Setup
 
-Create or update `.cursor/mcp.json` in your workspace or global settings:
+Add the following to `.cursor/mcp.json` in your workspace:
 
 ```json
 {
@@ -69,7 +69,7 @@ Create or update `.cursor/mcp.json` in your workspace or global settings:
       "command": "npx",
       "args": ["-y", "@99apps/pdf-tool-mcp"],
       "env": {
-        "KLIIMORA_API_KEY": "your_api_key_here"
+        "KLIIMORA_API_KEY": "klm_live_optional_pro_max_key"
       }
     }
   }
@@ -78,16 +78,16 @@ Create or update `.cursor/mcp.json` in your workspace or global settings:
 
 ---
 
-### 3. Termigo & Windsurf Setup
+### 3. Termigo & CLI Setup
 
-In your agent's MCP settings:
+In your agent's MCP settings or terminal session:
 
 ```json
 {
   "mcpServers": {
     "pdf-tools": {
-      "command": "node",
-      "args": ["C:/Project/pdf-tool-mcp/dist/index.js"]
+      "command": "npx",
+      "args": ["-y", "@99apps/pdf-tool-mcp"]
     }
   }
 }
@@ -112,16 +112,21 @@ In your agent's MCP settings:
 
 ---
 
-## 💳 Quota & Subscription Model
+## 💳 Fair-Use Policy & Subscription Tiers
 
-This MCP server is built with a **Freemium & Fair-Use** model:
+This MCP server is designed with an open developer model:
 
-* **100% Free & Unlimited**:
-  * Standard operations (`pdf_merge`, `pdf_split`, `pdf_rotate`, `pdf_protect`, `pdf_unlock`, `pdf_inspect`, `pdf_extract_text`, `pdf_export_word`) are completely free with no usage limits.
-* **Bank Statement Parser (Free Tier)**:
-  * Includes **5 free parses per day** per machine.
-* **Pro / Unlimited Access**:
-  * To remove daily limits and enable high-volume batch financial reconciliations, obtain an API Key at [Kliimora PDF](https://kliimorapdf.com/pricing) and supply it via `KLIIMORA_API_KEY`:
+### 1. Community & Open-Source Tier (100% Free)
+* **Standard Operations**: `pdf_merge`, `pdf_split`, `pdf_rotate`, `pdf_protect`, `pdf_unlock`, `pdf_inspect`, `pdf_extract_text`, and `pdf_export_word` are **100% free with unlimited local execution**. All operations run strictly on your machine.
+* **Bank Statement Parser**: Includes **5 free parses per day** per machine for testing and light personal usage.
+
+### 2. Kliimora Pro Max Tier ($35/mo)
+* API Key access and webhook automation are exclusive privileges of **[Kliimora Pro Max](https://kliimorapdf.com/pricing)** subscribers.
+* **Pro Max Benefits**:
+  * Up to **1,200 pages per month** with zero daily throttle.
+  * Direct API Key integration for automated data pipelines, n8n, Zapier, and autonomous multi-statement financial reconciliations.
+  * High-accuracy OCR fallback for scanned receipts and paper invoices.
+* Supply your key via environment variable:
   ```bash
   export KLIIMORA_API_KEY="klm_live_xxxxxxxxxxxx"
   ```
@@ -149,5 +154,5 @@ npx @modelcontextprotocol/inspector node dist/index.js
 
 ## 📄 License
 
-MIT License © 2026 PT Naracitra Solusindo / 99apps-id.
-Developed in collaboration with [Kliimora PDF](https://kliimorapdf.com).
+MIT License © 2026 PT Naracitra Solusindo / 99apps-id.  
+Powered by the document processing engines of [Kliimora PDF](https://kliimorapdf.com).
